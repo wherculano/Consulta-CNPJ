@@ -94,7 +94,7 @@ def find_package_data(
     return out
  
  
-PACKAGE = "Consulta-CNPJ"
+PACKAGE = "ConsultaCNPJ"
 NAME = PACKAGE
 DESCRIPTION = "Retorna uma consulta simples dos dados da empresa informada. Os dados sao retornados apartir da API desenvolvida pelo site RECEITAWS."
 AUTHOR = "Wagner Herculano"
