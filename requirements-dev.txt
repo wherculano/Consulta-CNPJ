@@ -1,0 +1,11 @@
+docutils==0.14
+entrypoints==0.3
+flake8==3.7.7
+mccabe==0.6.1
+pkginfo==1.5.0.1
+pycodestyle==2.5.0
+pyflakes==2.1.1
+Pygments==2.3.1
+readme-renderer==24.0
+tqdm==4.31.1
+-r requirements.txt
