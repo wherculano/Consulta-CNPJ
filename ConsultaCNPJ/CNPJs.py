@@ -1,4 +1,4 @@
-from tkinter import Label, Entry, Button, Text, INSERT, END, Tk
+from tkinter import Button, Entry, END, INSERT, Label, Text, Tk
 import requests
 import json
 
