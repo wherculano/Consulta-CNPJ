@@ -4,25 +4,25 @@ import sys
 from distutils.util import convert_path
 from fnmatch import fnmatchcase
 from setuptools import setup, find_packages
- 
- 
+
+
 def read(fname):
     return codecs.open(os.path.join(os.path.dirname(__file__), fname)).read()
- 
- 
 # Provided as an attribute, so you can append to these instead
 # of replicating them:
+
+
 standard_exclude = ["*.py", "*.pyc", "*$py.class", "*~", ".*", "*.bak"]
 standard_exclude_directories = [
     ".*", "CVS", "_darcs", "./build", "./dist", "EGG-INFO", "*.egg-info"
 ]
- 
- 
 # (c) 2005 Ian Bicking and contributors; written for Paste (http://pythonpaste.org)
 # Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 # Note: you may want to copy this into your setup.py file verbatim, as
 # you can't import this from another package, when you don't know if
 # that package is installed yet.
+
+
 def find_package_data(
         where=".",
         package="",
@@ -91,16 +91,16 @@ def find_package_data(
                     continue
                 out.setdefault(package, []).append(prefix + name)
     return out
- 
- 
+
+
 PACKAGE = "ConsultaCNPJ"
 NAME = PACKAGE
-DESCRIPTION = "Retorna uma consulta simples dos dados da empresa informada. Os dados sao retornados apartir da API desenvolvida pelo site RECEITAWS."
+DESCRIPTION = """Retorna uma consulta simples dos dados da empresa informada.
+                Os dados sao retornados apartir da API desenvolvida pelo site RECEITAWS."""
 AUTHOR = "Wagner Herculano"
 AUTHOR_EMAIL = "wagherculano@hotmail.com"
 URL = "https://github.com/wherculano/Consulta-CNPJ"
 VERSION = __import__(PACKAGE).__version__
- 
 setup(
     name=NAME,
     version=VERSION,
