@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Label, Entry, Button, Text, INSERT, END, Tk
 import requests
 import json
 
@@ -79,12 +79,14 @@ class Cnpj:
                 self.txt.insert(INSERT, '\nESTADO: {}\n'.format(receita['uf']))
                 self.txt.insert(INSERT, '-'*138)
                 try:
-                    self.txt.insert(INSERT, '\nATIVIDADE PRINCIPAL: {}\n'.format(receita['atividade_principal'][0]['text']))
+                    self.txt.insert(INSERT, '\nATIVIDADE PRINCIPAL: {}\n'
+                                    .format(receita['atividade_principal'][0]['text']))
                     self.txt.insert(INSERT, '-'*138)
                 except IndexError:
                     pass
                 try:
-                    self.txt.insert(INSERT, '\nATIVEIDE SECUNDÁRIA: {}\n'.format(receita['atividades_secundarias'][0]['text']))
+                    self.txt.insert(INSERT, '\nATIVEIDE SECUNDÁRIA: {}\n'
+                                    .format(receita['atividades_secundarias'][0]['text']))
                     self.txt.insert(INSERT, '-'*138)
                 except IndexError:
                     pass
@@ -98,7 +100,7 @@ class Cnpj:
                 self.txt.configure(state='disabled')
             except KeyError:
                 self.txt.insert(INSERT, 'ERRO: {}'.format(receita['message']))
-                                       
+
 
 if __name__ == '__main__':
     root = Tk()
