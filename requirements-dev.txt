@@ -10,7 +10,7 @@ readme-renderer==24.0
 tqdm==4.31.1
 
 #Deps do PyTestp
-more-itertools==4.1.0
+more-itertools==7.0.0
 py==1.8.0
 attrs==18.1.0
 atomicwrites==1.0
