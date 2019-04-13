@@ -17,4 +17,9 @@ atomicwrites==1.0
 six==1.11.0
 pluggy==0.9
 pytest==4.4.0
+
+#Coverage
+coverage==4.5.3
+pytest-cov==2.6.1
+
 -r requirements.txt
