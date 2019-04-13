@@ -10,11 +10,16 @@ readme-renderer==24.0
 tqdm==4.31.1
 
 #Deps do PyTestp
-more-itertools==4.1.0
+more-itertools==7.0.0
 py==1.8.0
 attrs==19.1.0
-atomicwrites==1.0
-six==1.11.0
+atomicwrites==1.3.0
+six==1.12.0
 pluggy==0.9
 pytest==4.4.0
+
+#Coverage
+coverage==4.5.3
+pytest-cov==2.6.1
+
 -r requirements.txt
