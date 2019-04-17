@@ -41,4 +41,3 @@ if __name__ == '__main__':
     numero = input('CNPJ: ')
     c = CnpjPrompt(numero)
     c.consulta()
-
