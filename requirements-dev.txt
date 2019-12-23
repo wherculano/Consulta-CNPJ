@@ -19,7 +19,7 @@ pluggy==0.13.0
 pytest==4.5.0
 
 #Coverage
-coverage==4.5.4
+coverage==5.0.1
 pytest-cov==2.7.1
 
 -r requirements.txt
