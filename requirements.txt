@@ -1,6 +1,6 @@
 certifi==2019.9.11
 chardet==3.0.4
-docutils==0.15.2
+docutils==0.16
 entrypoints==0.3
 idna==2.8
 mccabe==0.6.1
