@@ -4,37 +4,53 @@ import json
 URL = 'https://www.receitaws.com.br/v1/cnpj/'
 
 
-class CnpjPrompt:
+class ConsultaCNPJ:
     def __init__(self, cnpj):
         self.cnpj = ''.join([n for n in cnpj if n.isnumeric()])
 
-    def consulta(self):
-        req = requests.get(URL+self.cnpj)
+    def consulta(self) -> dict or str:
+        time.sleep(random.random() + random.randint(20, 25))
+        print('Efetuando a consulta do CNPJ')
+        req = requests.get(URL + self.cnpj)
         if req.status_code == 200:
             content = req.text
             result = json.loads(content)
+
             try:
-                rotulos = ['Razão Social:', 'Nome Fantasia:', 'Telefone:', 'e-mail:', 'CEP:', 'Endereco:',
-                           'Numero:', 'Complemento:', 'Bairro:', 'Municipip:', 'Estado:', 'Porte:', 'Abertura:',
-                           'Atividade Principal:', 'Atividades Secundarias:', 'Quadro Social Administrativo']
-
-                dados = [result['nome'], result['fantasia'], result['telefone'], result['email'],
-                         result['cep'].replace('.', ''), result['logradouro'], result['numero'], result['complemento'],
-                         result['bairro'], result['municipio'], result['uf'], result['porte'], result['abertura'],
-                         result['atividade_principal'][0]['text'], result['atividades_secundarias'][0]['text'],
-                         result['qsa']]
-
-                def _retorno():
-                    for key, value in zip(rotulos, dados):
-                        if key != 'Quadro Social Administrativo':
-                            print(key, value)
-                            print('-' * 50)
-                        else:
-                            for chave, nome in enumerate(value):
-                                print(key, nome['nome'])
-                return _retorno()
+                resultado = {
+                    'CNPJ': result['cnpj'],
+                    'Razao Social': result['nome'].upper(),
+                    'Nome Fantasia': result['fantasia'].upper(),
+                    'Telefone': result['telefone'],
+                    'email': result['email'],
+                    'CEP': result['cep'].replace('.', ''),
+                    'Endereco': result['logradouro'],
+                    'Numero': result['numero'],
+                    'Complemento': result['complemento'],
+                    'Bairro': result['bairro'],
+                    'Municipio': result['municipio'],
+                    'Estado': result['uf'],
+                    'Porte': result['porte'],
+                    'Natureza': result['natureza_juridica'],
+                    'Abertura': result['abertura'],
+                    'Situacao': result['situacao'],
+                    'Data Situacao': result['data_situacao'],
+                    'Motivo Situacao': result['motivo_situacao'],
+                    'Situacao Especial': result['situacao_especial'],
+                    'Ultima Atualizacao': result['ultima_atualizacao'],
+                    'Atividade Principal': f"{result['atividade_principal'][0]['code']}:"
+                                           f" {result['atividade_principal'][0]['text']}",
+                    'Atividades Secundarias': [f"{v['code']}: {v['text']}" for v in result['atividades_secundarias']],
+                    'Capital Social': result['capital_social'],
+                    'Socios': result['qsa'],
+                }
+                if resultado['Ultima Atualizacao'] != '':
+                    resultado['Ultima Atualizacao'] = datetime.strptime(
+                        resultado['Ultima Atualizacao'], '%Y-%m-%dT%H:%M:%S.%fZ').strftime('%d/%m/%Y %H:%M:%S')
+                print('Consulta realizada com sucesso!')
+                return resultado
             except KeyError:
-                return 'ERRO: {}'.format(result['message'])
+                return f"ERRO: {result['message']}"
 
 
 if __name__ == '__main__':
