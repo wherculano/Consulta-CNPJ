@@ -10,7 +10,7 @@ Apenas uma aplicação simples utilizando o módulo TKinter para apresentar as i
 
 Para instalar o projeto basta efetuar o clone do mesmo:
 ```console
-git close https://github.com/wherculano/Consulta-CNPJ.git
+git clone https://github.com/wherculano/Consulta-CNPJ.git
 ```
 criar um ambiente virtual dentro da pasta do projeto:
 ```console

@@ -1,3 +1,7 @@
+import random
+import time
+from datetime import datetime
+
 import requests
 import json
 
@@ -55,5 +59,5 @@ class ConsultaCNPJ:
 
 if __name__ == '__main__':
     numero = input('CNPJ: ')
-    c = CnpjPrompt(numero)
+    c = ConsultaCNPJ(numero)
     c.consulta()
